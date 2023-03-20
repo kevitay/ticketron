@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 
 const initialSearchState = {
     city: "",
@@ -9,17 +9,22 @@ const initialSearchState = {
 function reducer(state, action) {
     switch (action.type) {
             case "inputState":
-                return {...state, stateCode: action.stateCode}
+                return {...state, stateCode: action.payload}
             case "inputCity":
-                return {...state, city: action.city}
+                return {...state, city: action.payload}
         default: return state;
     };
 }
 
 function LocationSearch() {
     const [state, dispatch] = useReducer(reducer, initialSearchState); 
+    // useEffect(() => {
+    //     console.log(state)
+    // }, [state])
+
     return (
         <div>
+        
         <form onSubmit={""}>
           <input onChange={() => dispatch({type:"inputCity"})} value='{option}' type="text" placeholder="Downs, IL" ></input>
             <select onChange={(e) => dispatch({type:"inputState", payload: e.target.value})} name="state">
