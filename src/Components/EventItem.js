@@ -11,6 +11,7 @@ function EventItem() {
             <p>Ticket Price Range</p>
             <img alt="Event logo"></img>
             <a href="?">link to seat selection page</a>
+            <hr />
         </div>
     )
 }
