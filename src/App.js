@@ -1,10 +1,12 @@
-import React from 'react';
+import {React, useReducer} from 'react';
 import './App.css';
 import EventsList from './Components/EventsList';
 import FilterResults from './Components/FilterResults';
 import LocationSearch from './Components/LocationSearch';
 
+
 function App() {
+
   return (
     <div className='App'>
       <header>
@@ -13,7 +15,7 @@ function App() {
       <main>
       <LocationSearch />
       <FilterResults />
-      <EventsList />
+      <EventsList events={events} />
       </main>
     </div>
   );
