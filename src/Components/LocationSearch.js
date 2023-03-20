@@ -6,12 +6,22 @@ const initialSearchState = {
     countryCode: "US"
 }
 
+function reducer(state, action) {
+    switch (action.type) {
+            case "inputState":
+                return {...state, stateCode: action.stateCode}
+            case "inputCity":
+                return {...state, city: action.city}
+        default: return state;
+    };
+}
+
 function LocationSearch() {
     return (
         <div>
         <form onSubmit={""}>
-          <input onChange={""} value={city} type="text" placeholder="Downs, IL" ></input>
-            <select onChange={""} value={state} name="state">
+          <input onChange={""} value='{city}' type="text" placeholder="Downs, IL" ></input>
+            <select onChange={""} value='{state}' name="state">
               <option value="">Select state</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
