@@ -6,10 +6,15 @@ import LocationSearch from './Components/LocationSearch';
 
 function App() {
   return (
-    <div>
+    <div className='App'>
+      <header>
+        <h1>TicketTron 2.0</h1>
+      </header>
+      <main>
       <LocationSearch />
       <FilterResults />
       <EventsList />
+      </main>
     </div>
   );
 }
