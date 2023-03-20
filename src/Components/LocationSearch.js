@@ -6,6 +6,8 @@ const initialSearchState = {
     countryCode: "US"
 }
 
+
+
 function reducer(state, action) {
     switch (action.type) {
             case "inputState":
@@ -16,13 +18,15 @@ function reducer(state, action) {
     };
 }
 
+
 function LocationSearch() {
+    const [state, dispatch] = useReducer(reducer, initialSearchState); 
     return (
         <div>
         <form onSubmit={""}>
-          <input onChange={""} value='{city}' type="text" placeholder="Downs, IL" ></input>
-            <select onChange={""} value='{state}' name="state">
-              <option value="">Select state</option>
+          <input onChange={() => dispatch({type:"inputCity"})} value='{option}' type="text" placeholder="Downs, IL" ></input>
+            <select onChange={(e) => dispatch({type:"inputState", payload: e.target.value})} name="state">
+              <option>Select state</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
