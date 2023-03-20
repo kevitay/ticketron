@@ -6,8 +6,6 @@ const initialSearchState = {
     countryCode: "US"
 }
 
-
-
 function reducer(state, action) {
     switch (action.type) {
             case "inputState":
@@ -17,7 +15,6 @@ function reducer(state, action) {
         default: return state;
     };
 }
-
 
 function LocationSearch() {
     const [state, dispatch] = useReducer(reducer, initialSearchState); 
