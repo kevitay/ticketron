@@ -1,11 +1,11 @@
 import React from "react";
 
-function LocationSearch() {
+function LocationSearch({ getEvents }) {
     return (
         <div>
             <form onSubmit={""}>
             <input onChange={""} type="text" placeholder="Downs, IL" ></input>
-            <button type="submit">Search</button>
+            <button onClick={(e) => { e.preventDefault(); getEvents() }}type="button">Search</button>
             </form>
         </div>
     )
