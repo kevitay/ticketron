@@ -47,7 +47,7 @@ function App() {
       <main>
       <LocationSearch getEvents={getEvents} />
       <FilterResults />
-      { isLoading ? <div></div> : <EventsList eventsList={state} /> }
+      { isLoading ? "" : <EventsList eventsList={state} /> }
       </main>
     </div>
   );
