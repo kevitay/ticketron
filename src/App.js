@@ -5,13 +5,19 @@ import FilterResults from './Components/FilterResults';
 import LocationSearch from './Components/LocationSearch';
 
 function App() {
+
+  function getLocationInput(location) {
+    console.log(location);
+    return location;
+  }
+
   return (
     <div className='App'>
       <header>
         <h1>TicketTron 2.0</h1>
       </header>
       <main>
-      <LocationSearch />
+        <LocationSearch location={getLocationInput} />
       <FilterResults />
       <EventsList />
       </main>
