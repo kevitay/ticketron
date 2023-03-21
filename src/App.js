@@ -24,23 +24,28 @@ function App() {
 
 
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [location, setLocation] = useState({});
+  const [location, setLocation] = useState({city: "", stateCode: "", countryCode: "US"});
+  const [loading, setLoadState] = useState(false)
   
+useEffect(() => {
+  getEvents();
+}, [])
 
   useEffect(() => {
     getEvents();
   }, [location])
 
   const getEvents = () => {
-    console.log('You got here')
-    console.log(location)
-    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=AGoronTU164njtX9HovbXILABk4pyQ00&stateCode=${location.stateCode}&city=${location.city}`, {
+    setLoadState(true)
+    // console.log('You got here')
+    // console.log(location)
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=AGoronTU164njtX9HovbXILABk4pyQ00&stateCode=${location.stateCode}&city=${location.city}&size=10`, {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
     })
     .then(response => response.json())
     .then(data => { 
-        dispatch({ type: 'eventList', payload: data })
-        console.log(data)
+        dispatch({ type: 'eventList', payload: data._embedded.events })
+        setLoadState(false)
     })
 
   }
@@ -56,9 +61,7 @@ function App() {
       <main>
       <LocationSearch location={getLocationInput} />
       <FilterResults />
-      {/* { isLoading ? "" :  */}
-      <EventsList eventsList={state} /> 
-      {/* } */}
+      {loading ? "Loading..." : <EventsList eventsList={state.eventsList} />}
       </main>
     </div>
   );
