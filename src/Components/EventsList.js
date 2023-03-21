@@ -5,7 +5,7 @@ import EventItem from "./EventItem";
 
 
 function EventsList(props) {
-
+console.log(props)
     return (
         <div>
             {/* update city, state based on user's location input */}

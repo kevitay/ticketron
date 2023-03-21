@@ -9,7 +9,7 @@ const initialState = {eventsList: []}
 function reducer(state, action) {
 
   switch (action.type) {
-    case 'Eventlist':
+    case 'eventList':
       return { ...state, eventsList: action.payload};
     default:
       return state;
@@ -18,22 +18,35 @@ function reducer(state, action) {
 
 function App() {
 
+  function getLocationInput(location) {
+    setLocation(location);
+  }
+
+
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setLoadingState] = useState(false);
+  const [location, setLocation] = useState({});
   
+
+  useEffect(() => {
+    getEvents();
+  }, [location])
+
   const getEvents = () => {
     console.log('You got here')
-    setIsLoading(true);
-    fetch('https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=y4fgqxQmNBRy8u9y5IBixQXA56Zh0x3z&stateCode=IL',  {
-      method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    })
-    .then(response => response.json())
+    console.log(location)
+    dispatch({ type: 'eventList', payload: location })
+    // setIsLoading(true);
+    // fetch('https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=y4fgqxQmNBRy8u9y5IBixQXA56Zh0x3z&stateCode=IL',  {
+    //   method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    // })
+    // .then(response => response.json())
     //.then(data => data.filter(x => x.city === usestate: city))
-    .then(data => { 
-        dispatch({ type: 'Eventlist', payload: data })
-        
-    })
-    .then(setIsLoading(false));
+    // .then(data => { 
+    //     dispatch({ type: 'Eventlist', payload: data })
+    // .then(setIsLoading(false));
+    // })
+
   }
 
   // useEffect(() => {getEvents()}, [])
@@ -45,9 +58,11 @@ function App() {
         <h1>TicketTron 2.0</h1>
       </header>
       <main>
-      <LocationSearch getEvents={getEvents} />
+      <LocationSearch getEvents={getEvents} location={getLocationInput} />
       <FilterResults />
-      { isLoading ? "" : <EventsList eventsList={state} /> }
+      {/* { isLoading ? "" :  */}
+      <EventsList eventsList={state} /> 
+      {/* } */}
       </main>
     </div>
   );
