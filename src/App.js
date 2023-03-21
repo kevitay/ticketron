@@ -7,6 +7,7 @@ import LocationSearch from './Components/LocationSearch';
 
 function App() {
   const initialState = {events: []}
+  
   function reducer(state, action) {
 
     switch (action.type) {
