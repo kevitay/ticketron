@@ -24,7 +24,6 @@ function App() {
 
 
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [isLoading, setLoadingState] = useState(false);
   const [location, setLocation] = useState({});
   
 
@@ -35,17 +34,14 @@ function App() {
   const getEvents = () => {
     console.log('You got here')
     console.log(location)
-    dispatch({ type: 'eventList', payload: location })
-    // setIsLoading(true);
-    // fetch('https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=y4fgqxQmNBRy8u9y5IBixQXA56Zh0x3z&stateCode=IL',  {
-    //   method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    // })
-    // .then(response => response.json())
-    //.then(data => data.filter(x => x.city === usestate: city))
-    // .then(data => { 
-    //     dispatch({ type: 'Eventlist', payload: data })
-    // .then(setIsLoading(false));
-    // })
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=AGoronTU164njtX9HovbXILABk4pyQ00&stateCode=${location.stateCode}&city=${location.city}`, {
+      method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    })
+    .then(response => response.json())
+    .then(data => { 
+        dispatch({ type: 'eventList', payload: data })
+        console.log(data)
+    })
 
   }
 
@@ -58,7 +54,7 @@ function App() {
         <h1>TicketTron 2.0</h1>
       </header>
       <main>
-      <LocationSearch getEvents={getEvents} location={getLocationInput} />
+      <LocationSearch location={getLocationInput} />
       <FilterResults />
       {/* { isLoading ? "" :  */}
       <EventsList eventsList={state} /> 

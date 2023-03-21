@@ -16,7 +16,7 @@ function reducer(state, action) {
     }
 }
 
-function LocationSearch({location, getEvents}) {
+function LocationSearch({location}) {
 
     const [state, dispatch] = useReducer(reducer, initialSearchState); 
     const [formStatus, setFormStatus] = useState(false);
@@ -27,10 +27,10 @@ function LocationSearch({location, getEvents}) {
 
     return (
       <div>
-        <form onSubmit={(e) => { e.preventDefault(); getEvents(); setFormStatus(true)}}>
+        <form onSubmit={(e) => { e.preventDefault(); setFormStatus(true)}}>
           <input onChange={(e) => dispatch({ type: 'inputCity', payload: e.target.value })} type="text" placeholder="Downs, IL"></input>
-          <select onChange={(e) => dispatch({ type: 'inputState', payload: e.target.value })} name="state">
-            <option>Select state</option>
+          <select onChange={(e) => dispatch({ type: 'inputState', payload: e.target.value })} name="state" required>
+            <option disabled selected>Select state</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
