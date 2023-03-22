@@ -7,7 +7,7 @@ function CategoryDropdown(props) {
     const uniqueSegments = [...new Set(segmentArray)]
 
     const captureCategory = (event) => {
-        event.preventDefault();
+        console.log('run');
         const newValue = event.target.value;
         console.log(newValue)
         setFilter({Category: newValue});
@@ -23,10 +23,10 @@ function CategoryDropdown(props) {
 
     return (
       <div>
-        <form onSubmit={(e) => { handleFilter(e)}}>
-        <select>
+        <form onSubmit={(e) => {handleFilter(e)}}>
+        <select onChange={captureCategory}>
           {uniqueSegments.map((option) => (
-            <option onClick={((e) => captureCategory(e))} value={option}>{option}</option>
+            <option value={option}>{option}</option>
           ))}
         </select>
         <button type="submit" >Search</button>

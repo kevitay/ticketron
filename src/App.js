@@ -16,6 +16,7 @@ function reducer(state, action) {
   }
 }
 
+
 function App() {
 
   function getLocationInput(location) {
@@ -62,7 +63,7 @@ useEffect(() => {
       </header>
       <main>
       <LocationSearch location={getLocationInput} />
-      {loading ? "Loading..." : <FilterResults eventsList={state.eventsList} reducer={dispatch()}/>}
+      {loading ? "Loading..." : <FilterResults eventsList={state.eventsList} reducer={dispatch}/>}
       {loading ? "Loading..." : <EventsList eventsList={state.eventsList} location={location} />}
       </main>
     </div>
