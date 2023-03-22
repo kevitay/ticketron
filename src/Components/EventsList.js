@@ -30,10 +30,10 @@ const prevPage = () => {
       <div>
         <h2>Upcoming Events {location.city ? `in ${location.city}, ${location.stateCode}` : location.stateCode ? `in ${location.stateCode}` : ''}</h2>
         <PageControls events={eventsArray} next={nextPage} prev={prevPage} />
-        {eventsArray.slice((page-1)*eventsPerPage, page*eventsPerPage).map((event) => (
+        {eventsArray.slice((page - 1) * eventsPerPage, page * eventsPerPage).map((event) => (
         <EventItem event={event} />
         ))}
-        
+        <PageControls events={eventsArray} next={nextPage} prev={prevPage} />
       </div>
     );
 }
