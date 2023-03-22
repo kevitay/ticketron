@@ -2,11 +2,11 @@ import React from "react";
 import CategoryDropdown from "./CategoryDropdown";
 import DateFilter from "./DateFilter";
 
-function FilterResults() {
+function FilterResults(props) {
     return (
         <div>
             <DateFilter />
-            <CategoryDropdown />
+            <CategoryDropdown eventsList={props.eventsList} />
         </div>
     )
 }
