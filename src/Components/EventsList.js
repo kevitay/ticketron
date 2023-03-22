@@ -5,7 +5,7 @@ import EventItem from "./EventItem";
 
 
 function EventsList(props) {
-console.log(props)
+// console.log(props)
 let eventsArray = props.eventsList
 // console.log(eventsArray)
     return (

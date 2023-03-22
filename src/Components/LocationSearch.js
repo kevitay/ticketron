@@ -22,7 +22,9 @@ function LocationSearch({location}) {
     const [formStatus, setFormStatus] = useState(false);
 
     useEffect(() => {
-      location(state);
+      location(state); 
+      setFormStatus(false)
+      console.log('triggered')
     }, [formStatus]);
 
     return (
