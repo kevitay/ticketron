@@ -1,4 +1,4 @@
-import {React, useReducer, useEffect, useState} from 'react';
+import React, { useReducer, useEffect, useState} from 'react';
 import './App.css';
 import EventsList from './Components/EventsList';
 import FilterResults from './Components/FilterResults';
@@ -37,7 +37,7 @@ useEffect(() => {
 
   const getEvents = () => {
     setLoadState(true)
-    // console.log('You got here')
+    console.log('You got here')
     // console.log(location)
     fetch(`https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=AGoronTU164njtX9HovbXILABk4pyQ00&stateCode=${location.stateCode}&city=${location.city}&size=10`, {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -60,8 +60,8 @@ useEffect(() => {
       </header>
       <main>
       <LocationSearch location={getLocationInput} />
-      <FilterResults />
-      {loading ? "Loading..." : <EventsList eventsList={state.eventsList} />}
+      {loading ? "Loading..." : <FilterResults eventsList={state.eventsList} />}
+      {loading ? "Loading..." : <EventsList eventsList={state.eventsList} location={location} />}
       </main>
     </div>
   );
