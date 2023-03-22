@@ -39,7 +39,7 @@ useEffect(() => {
     setLoadState(true)
     console.log('You got here')
     // console.log(location)
-    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=AGoronTU164njtX9HovbXILABk4pyQ00&stateCode=${location.stateCode}&city=${location.city}&size=10`, {
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=AGoronTU164njtX9HovbXILABk4pyQ00&stateCode=${location.stateCode}&city=${location.city}&size=100`, {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
     })
     .then(response => response.json())
@@ -49,6 +49,8 @@ useEffect(() => {
     })
 
   }
+
+
 
   // useEffect(() => {getEvents()}, [])
   // useEffect(() => {console.log(state)}, [state])
@@ -60,7 +62,7 @@ useEffect(() => {
       </header>
       <main>
       <LocationSearch location={getLocationInput} />
-      {loading ? "Loading..." : <FilterResults eventsList={state.eventsList} />}
+      {loading ? "Loading..." : <FilterResults eventsList={state.eventsList} reducer={dispatch()}/>}
       {loading ? "Loading..." : <EventsList eventsList={state.eventsList} location={location} />}
       </main>
     </div>

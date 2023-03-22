@@ -6,7 +6,7 @@ function FilterResults(props) {
     return (
         <div>
             <DateFilter />
-            <CategoryDropdown eventsList={props.eventsList} />
+            <CategoryDropdown eventsList={props.eventsList} reducer={props.reducer()} />
         </div>
     )
 }
