@@ -61,7 +61,7 @@ useEffect(() => {
       <main>
       <LocationSearch location={getLocationInput} />
       <FilterResults />
-      {loading ? "Loading..." : <EventsList eventsList={state.eventsList} />}
+      {loading ? "Loading..." : <EventsList eventsList={state.eventsList} location={location} />}
       </main>
     </div>
   );
