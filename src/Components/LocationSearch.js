@@ -28,7 +28,7 @@ function LocationSearch({location}) {
     return (
       <div>
         <form onSubmit={(e) => { e.preventDefault(); setFormStatus(true)}}>
-          <input onChange={(e) => dispatch({ type: 'inputCity', payload: e.target.value })} type="text" placeholder="Downs, IL"></input>
+          <input onChange={(e) => dispatch({ type: 'inputCity', payload: e.target.value })} type="text" placeholder="Chicago"></input>
           <select onChange={(e) => dispatch({ type: 'inputState', payload: e.target.value })} name="state" required>
             <option selected value=''>Select state</option>
             <option value="AL">Alabama</option>
