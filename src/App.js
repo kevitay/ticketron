@@ -1,4 +1,4 @@
-import {React, useReducer, useEffect, useState} from 'react';
+import React, { useReducer, useEffect, useState} from 'react';
 import './App.css';
 import EventsList from './Components/EventsList';
 import FilterResults from './Components/FilterResults';
