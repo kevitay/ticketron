@@ -67,6 +67,17 @@
   text-align: center;
 }
 
+.event-filters {
+  background-color: #0077cc;
+  color: white;
+  padding: 2.25em;
+}
+
+.event-filters * {
+  margin-right: .5em;
+  margin-bottom: .5em;
+}
+
 .eventItem {
   display: flex;
   justify-content: space-between;
