@@ -3,7 +3,7 @@ import React from "react";
 // TicketPriceRange: '100-200', City: 'Bloomington', State: 'IL', Venue: 'Tom"s trunk barn'}
 function EventItem({event}) {
     console.log(event)
-    let eventDateTime = event.dates.start.dateTime;
+    let eventDateTime = (event.dates.start.dateTime ? event.dates.start.dateTime : Date('9999/12/31'));
     let formattedDateTime = new Date(eventDateTime).toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " ");
     return (
         <div>
