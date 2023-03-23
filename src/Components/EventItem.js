@@ -9,7 +9,8 @@ function EventItem({event}) {
       <div className="eventItem">
         <div className="main-details">
           <img alt="Event logo" src={event.images[0].url}></img>
-          <h2>{event.name}</h2><br/>
+          <h3>{event.name}</h3>
+          <br />
           <p>{formattedDateTime}</p>
         </div>
         <div className="location-details">
@@ -18,7 +19,9 @@ function EventItem({event}) {
           </p>
           <p>Venue: {event._embedded.venues[0].name}</p>
         </div>
-        <p>{event.priceRanges ? '$' + event.priceRanges[0].min + '-' + '$' + event.priceRanges[0].max : 'No price to display'} </p>
+        <div className="prices">
+          <p>{event.priceRanges ? '$' + event.priceRanges[0].min + '-' + '$' + event.priceRanges[0].max : 'No price to display'} </p>
+        </div>
         <a target="_blank" href={event.url}>
           Buy Tickets
         </a>

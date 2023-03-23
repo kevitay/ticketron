@@ -28,7 +28,7 @@ const prevPage = () => {
 // console.log(location, "location log")
 // console.log(eventsArray)
   return (
-    <div>
+    <div className="events-list">
       <h2>Upcoming Events {location.city ? `in ${location.city}, ${location.stateCode}` : location.stateCode ? `in ${location.stateCode}` : ''}</h2>
       <PageControls events={eventsArray} next={nextPage} prev={prevPage} pagenum={page} lastpage={totalPages} />
       {eventsArray.slice((page - 1) * eventsPerPage, page * eventsPerPage).map((event) => (
