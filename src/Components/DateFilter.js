@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
-function DateFilter({ eventsList }) {
+function DateFilter({eventsList, reducer}) {
     let currentDate = new Date().toISOString().slice(0, 10);
 
     const [minDate, setMinDate] = useState(currentDate);
     const [maxDate, setMaxDate] = useState(currentDate);
-    const [testState, setTestState] = useState(eventsList);
 
     const handleMinChange = (event) => {
         setMinDate(event.target.value);
@@ -17,9 +16,8 @@ function DateFilter({ eventsList }) {
     };
 
     useEffect(() => {
-        let results = testState
-        results = results.filter(event => event.dates.start.localDate >= minDate && event.dates.start.localDate <= maxDate);
-        console.log(results)
+        let filteredResults = eventsList.filter(event => event.dates.start.localDate >= minDate && event.dates.start.localDate <= maxDate);
+        reducer({ type: 'eventList', payload: filteredResults })
     },
         [minDate, maxDate]
     )
