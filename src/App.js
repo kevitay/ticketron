@@ -47,8 +47,9 @@ function App() {
       .then(response => response.json())
       .then(data => {
         dispatch({ type: 'eventList', payload: data._embedded.events })
-        setLoadState(false)
+
       })
+      .then(setLoadState(false))
 
   }
 
@@ -60,7 +61,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>TicketTron 2.0</h1>
+      <h1>Ticketron 2.0</h1>
       <LocationSearch location={getLocationInput}/>
       </header>
       <main>
