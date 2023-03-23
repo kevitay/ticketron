@@ -36,3 +36,50 @@
     transform: rotate(360deg);
   }
 }
+
+
+.eventItem {
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  max-width: 60%;
+  margin: auto;
+  margin-bottom: 1em;
+}
+
+.main-details {
+  float: left;
+  display: block;
+}
+
+.eventItem img {
+  border-radius: 10px 10px;
+  object-fit: cover;
+  width: 133px;
+  height: 75px;
+}
+
+.main-details h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  text-align: left;
+}
+
+.eventItem p {
+  font-size: 1rem;
+  line-height: 1.5px;
+  margin-bottom: 10px;
+}
+
+.eventItem a {
+  /* display: inline-block;
+  flex-basis: 20%; */
+  background-color: #0077cc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
