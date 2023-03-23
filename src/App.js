@@ -1,15 +1,14 @@
-import React, { useReducer, useEffect, useState } from 'react';
-import './App.css';
-import EventsList from './Components/EventsList';
-import FilterResults from './Components/FilterResults';
-import LocationSearch from './Components/LocationSearch';
+import React, { useReducer, useEffect, useState } from "react";
+import "./App.css";
+import EventsList from "./Components/EventsList";
+import FilterResults from "./Components/FilterResults";
+import LocationSearch from "./Components/LocationSearch";
 
-const initialState = { eventsList: [] }
+const initialState = { eventsList: [] };
 
 function reducer(state, action) {
-
   switch (action.type) {
-    case 'eventList':
+    case "eventList":
       return { ...state, eventsList: action.payload };
     default:
       return state;
@@ -18,27 +17,29 @@ function reducer(state, action) {
 
 
 function App() {
-
   function getLocationInput(location) {
     setLocation(location);
   }
 
-
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [location, setLocation] = useState({ city: "", stateCode: "", countryCode: "US" });
-  const [loading, setLoadState] = useState(false)
+  const [location, setLocation] = useState({
+    city: "",
+    stateCode: "",
+    countryCode: "US",
+  });
+  const [loading, setLoadState] = useState(false);
 
   useEffect(() => {
     getEvents();
-  }, [])
+  }, []);
 
   useEffect(() => {
     getEvents();
-  }, [location])
+  }, [location]);
 
   const getEvents = () => {
-    setLoadState(true)
-    console.log('You got here')
+    setLoadState(true);
+    console.log("You got here");
     // console.log(location)
     fetch(`https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=AGoronTU164njtX9HovbXILABk4pyQ00&stateCode=${location.stateCode}&city=${location.city}&size=200`, {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -57,9 +58,10 @@ function App() {
   // useEffect(() => {console.log(state)}, [state])
 
   return (
-    <div className='App'>
+    <div className="App">
       <header>
         <h1>TicketTron 2.0</h1>
+        <LocationSearch location={getLocationInput} />
       </header>
       <main>
       <LocationSearch location={getLocationInput} />

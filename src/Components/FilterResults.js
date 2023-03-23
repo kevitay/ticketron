@@ -4,10 +4,10 @@ import DateFilter from "./DateFilter";
 
 function FilterResults(props) {
     return (
-        <div>
+
+        <div className="event-filters">
             <DateFilter eventsList={props.eventsList} reducer={props.reducer} />
             <CategoryDropdown eventsList={props.eventsList} reducer={props.reducer} />
-           
         </div>
     )
 }
