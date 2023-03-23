@@ -29,6 +29,9 @@ header button {
   border:none;
   /* background-color: #D8823B; */
   background-color: orange;
+  color: white;
+  transition: .2s;
+  border-radius: 3px;
 }
 
 header button:hover {
