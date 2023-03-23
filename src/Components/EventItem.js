@@ -6,19 +6,27 @@ function EventItem({event}) {
     let eventDateTime = event.dates.start.dateTime;
     let formattedDateTime = new Date(eventDateTime).toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " ");
     return (
-        <div>
-            <h2>Name: {event.name}</h2>
-            <p>Date & Time: {formattedDateTime}</p>
-            <p>City: {event._embedded.venues[0].city.name}</p>
-            <p>State: {event._embedded.venues[0].state.name}</p>
-            <p>Venue: {event._embedded.venues[0].name}</p>
-            <p>Ticket price: {event.priceRanges ? '$' + event.priceRanges[0].min + '-' + '$' + event.priceRanges[0].max : 'No price to display'} </p>
-            <img alt="Event logo" src={event.images[0].url}></img>
-            <br></br>
-            <a target="_blank" href={event.url}>Buy Tickets</a>
-            <hr />
+      <div className="eventItem">
+        <div className="main-details">
+          <img alt="Event logo" src={event.images[0].url}></img>
+          <h3>{event.name}</h3>
+          <br />
+          <p>{formattedDateTime}</p>
         </div>
-    )
+        <div className="location-details">
+          <p>
+            {event._embedded.venues[0].city.name}, {event._embedded.venues[0].state.name}
+          </p>
+          <p>Venue: {event._embedded.venues[0].name}</p>
+        </div>
+        <div className="prices">
+          <p>{event.priceRanges ? '$' + event.priceRanges[0].min + '-' + '$' + event.priceRanges[0].max : 'No price to display'} </p>
+        </div>
+        <a target="_blank" href={event.url}>
+          Buy Tickets
+        </a>
+      </div>
+    );
 }
 
 export default EventItem; 
