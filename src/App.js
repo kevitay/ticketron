@@ -15,6 +15,7 @@ function reducer(state, action) {
   }
 }
 
+
 function App() {
   function getLocationInput(location) {
     setLocation(location);
@@ -40,18 +41,18 @@ function App() {
     setLoadState(true);
     console.log("You got here");
     // console.log(location)
-    fetch(
-      `https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=AGoronTU164njtX9HovbXILABk4pyQ00&stateCode=${location.stateCode}&city=${location.city}&size=200`,
-      {
-        method: "GET", // *GET, POST, PUT, DELETE, etc.
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        dispatch({ type: "eventList", payload: data._embedded.events });
-        setLoadState(false);
-      });
-  };
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=AGoronTU164njtX9HovbXILABk4pyQ00&stateCode=${location.stateCode}&city=${location.city}&size=200`, {
+      method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    })
+      .then(response => response.json())
+      .then(data => {
+        dispatch({ type: 'eventList', payload: data._embedded.events })
+        setLoadState(false)
+      })
+
+  }
+
+
 
   // useEffect(() => {getEvents()}, [])
   // useEffect(() => {console.log(state)}, [state])
@@ -63,16 +64,9 @@ function App() {
         <LocationSearch location={getLocationInput} />
       </header>
       <main>
-        {loading ? (
-          "Loading..."
-        ) : (
-          <FilterResults eventsList={state.eventsList} />
-        )}
-        {loading ? (
-          ""
-        ) : (
-          <EventsList eventsList={state.eventsList} location={location} />
-        )}
+      <LocationSearch location={getLocationInput} />
+      {loading ? "Loading..." : <FilterResults eventsList={state.eventsList} reducer={dispatch}/>}
+      {loading ? "Loading..." : <EventsList eventsList={state.eventsList} location={location} />}
       </main>
     </div>
   );

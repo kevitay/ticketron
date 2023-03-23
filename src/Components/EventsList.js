@@ -30,11 +30,11 @@ const prevPage = () => {
   return (
     <div className="events-list">
       <h2>Upcoming Events {location.city ? `in ${location.city}, ${location.stateCode}` : location.stateCode ? `in ${location.stateCode}` : ''}</h2>
-      <PageControls events={eventsArray} next={nextPage} prev={prevPage} pagenum={page} lastpage={totalPages} />
+      <PageControls events={eventsArray} next={nextPage} prev={prevPage} pagenum={page} lastpage={totalPages + 1} />
       {eventsArray.slice((page - 1) * eventsPerPage, page * eventsPerPage).map((event) => (
         <EventItem event={event} />
       ))}
-      <PageControls events={eventsArray} next={nextPage} prev={prevPage} pagenum={page} lastpage={totalPages} />
+      <PageControls events={eventsArray} next={nextPage} prev={prevPage} pagenum={page} lastpage={totalPages +1} />
     </div>
   );
 }
