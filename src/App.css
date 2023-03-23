@@ -40,7 +40,8 @@
 
 .eventItem {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  /* flex-direction: column; */
   background-color: #f2f2f2;
   border-radius: 10px;
   padding: 10px;
@@ -50,22 +51,31 @@
   margin-bottom: 1em;
 }
 
-.main-details {
-  float: left;
-  display: block;
+.eventItem * {
+  margin-right: 1.25em;
 }
 
-.eventItem img {
-  border-radius: 10px 10px;
-  object-fit: cover;
-  width: 133px;
-  height: 75px;
+.main-details * {
+  float: left;
+}
+
+.location-details {
+  display: inline-block;
+  width: auto;
 }
 
 .main-details h2 {
   font-size: 1.2rem;
   margin: 10px 0;
   text-align: left;
+}
+
+.eventItem img {
+  display: inline-block;
+  border-radius: 10px 10px;
+  object-fit: cover;
+  width: 133px;
+  height: 75px;
 }
 
 .eventItem p {
@@ -75,8 +85,6 @@
 }
 
 .eventItem a {
-  /* display: inline-block;
-  flex-basis: 20%; */
   background-color: #0077cc;
   color: #fff;
   text-decoration: none;
