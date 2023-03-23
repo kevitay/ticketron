@@ -1,6 +1,9 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
+
 
 .event-filters {
   background-color: rgb(82, 82, 82);
@@ -62,6 +65,44 @@
   margin-bottom: 10px;
 }
 
+header {
+  color: white;
+  background-color: #0077cc;
+  padding: 2.25em;
+
+}
+
+header h1 {
+  margin-bottom: 1em;
+}
+
+header input,select,button {
+  height: 2em;
+  margin-right: .3em;
+  padding: 2px;
+  font-weight: bold;
+}
+
+header button {
+  cursor:pointer;
+  padding-left: 20px;
+  padding-right: 20px;
+  border:none;
+  /* background-color: #D8823B; */
+  background-color: orange;
+  color: white;
+  transition: .2s;
+  border-radius: 3px;
+}
+
+header button:hover {
+  padding-left: 20px;
+  padding-right: 20px;
+  border:none;
+  /* background-color: #D8823B; */
+  background-color: #ffb833;
+}
+
 .eventItem a {
   background-color: #0077cc;
   color: #fff;
@@ -86,6 +127,8 @@
   border-radius: 5px;
 }
 
+
 .page-controls {
   padding: 1em;
 }
+
