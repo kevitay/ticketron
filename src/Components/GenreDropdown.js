@@ -1,10 +1,14 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 function GenreDropdown(props) {
     // console.log(props.eventsList)
     const [filter, setFilter] = useState({genre: ''});
     const segmentArray = props.eventsList.map((option) => option.classifications[0].genre.name);
     const uniqueSegments = [...new Set(segmentArray)]
+
+    useEffect(() => {
+        handleFilter();
+      }, [filter])
 
     const captureGenre = (event) => {
         console.log('run');
@@ -16,8 +20,8 @@ function GenreDropdown(props) {
     const handleFilter = (e) => {
         console.log("you got here")
         console.log(filter)
-        e.preventDefault()
-        const genres = props.eventsList.filter(x =>x.classifications[0].segment.name === filter.genre);
+        
+        const genres = props.eventsList.filter(x =>x.classifications[0].genre.name === filter.genre);
             props.reducer({ type: 'eventList', payload: genres })
         };
 
@@ -25,11 +29,11 @@ function GenreDropdown(props) {
       <div>
         <form onSubmit={(e) => {handleFilter(e)}}>
         <select onChange={captureGenre}>
+        <option selected value=''>Select Genre</option>
           {uniqueSegments.map((option) => (
             <option value={option}>{option}</option>
           ))}
         </select>
-        <button type="submit" >Search</button>
         </form>
       </div>
     );
