@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -21,12 +21,11 @@
 
 .eventItem {
   display: flex;
-  justify-content: space-between;
-  /* flex-direction: column; */
+  flex-direction: row;
   background-color: #f2f2f2;
   border-radius: 10px;
   padding: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   max-width: 95%;
   margin: auto;
   margin-bottom: 1em;
@@ -43,7 +42,9 @@ header h1 {
   margin-bottom: 1em;
 }
 
-header input,select,button {
+header input,
+select,
+button {
   height: 2em;
   margin-right: .3em;
   padding: 2px;
@@ -51,10 +52,10 @@ header input,select,button {
 }
 
 header button {
-  cursor:pointer;
+  cursor: pointer;
   padding-left: 20px;
   padding-right: 20px;
-  border:none;
+  border: none;
   /* background-color: #D8823B; */
   background-color: orange;
   color: white;
@@ -65,18 +66,24 @@ header button {
 header button:hover {
   padding-left: 20px;
   padding-right: 20px;
-  border:none;
+  border: none;
   /* background-color: #D8823B; */
   background-color: #ffb833;
 }
 
+.event-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 .eventItem a {
   background-color: #0077cc;
-  margin-top: .5em;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
-  height: 50%;
+  height: 2.5em;
   padding: 10px 20px;
   transition: background-color 0.2s ease-in-out;
 }
@@ -85,7 +92,8 @@ header button:hover {
   text-align: left;
 }
 
-.next-btn, .prev-btn {
+.next-btn,
+.prev-btn {
   margin-right: .25em;
   cursor: pointer;
   border: none;
@@ -104,14 +112,22 @@ header button:hover {
   margin-right: 1.25em;
 }
 
-.main-details * {
-  float: left;
+.main-details {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+  align-items: flex-start;
+  align-self: flex-start;
+  width: 30%;
 }
 
 .location-details {
-  display: inline-block;
-  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0;
   text-align: left;
+  width: 15%;
 }
 
 .location-details p {
@@ -139,6 +155,12 @@ header button:hover {
 
 .eventItem p {
   font-size: 1rem;
-  line-height: 1.5px;
   margin-bottom: 10px;
+}
+
+.tickets-link {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  justify-content: center;
 }
