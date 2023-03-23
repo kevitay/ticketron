@@ -41,7 +41,7 @@ function App() {
     console.log("You got here");
     // console.log(location)
     fetch(
-      `https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=AGoronTU164njtX9HovbXILABk4pyQ00&stateCode=${location.stateCode}&city=${location.city}&size=50`,
+      `https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=AGoronTU164njtX9HovbXILABk4pyQ00&stateCode=${location.stateCode}&city=${location.city}&size=200`,
       {
         method: "GET", // *GET, POST, PUT, DELETE, etc.
       }
