@@ -1,25 +1,21 @@
-
-
 *{
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-
 }
 
-header{
+header {
   color: white;
   background-color: rgb(58, 58, 151);
   padding: 2.25em;
 
 }
 
-header h1{
+header h1 {
   margin-bottom: 1em;
 }
 
-header input,select,button{
-
+header input,select,button {
   height: 2em;
   margin-right: .3em;
   padding: 2px;
@@ -27,9 +23,20 @@ header input,select,button{
 }
 
 header button {
+  cursor:pointer;
   padding-left: 20px;
   padding-right: 20px;
+  border:none;
+  /* background-color: #D8823B; */
+  background-color: orange;
+}
 
+header button:hover {
+  padding-left: 20px;
+  padding-right: 20px;
+  border:none;
+  /* background-color: #D8823B; */
+  background-color: #ffb833;
 }
 
 .App {
@@ -40,8 +47,6 @@ header button {
   height: 40vmin;
   pointer-events: none;
 }
-
-
 
 .App-header {
   background-color: #282c34;
