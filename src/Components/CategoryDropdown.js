@@ -3,7 +3,7 @@ import GenreDropdown from "./GenreDropdown";
 
 function CategoryDropdown(props) {
     // console.log(props.eventsList)
-    const segmentArray = props.eventsList.map((option) => option.classifications[0].segment.name);
+    const segmentArray = props.eventsList.filter((option) => option.classifications[0].segment === 'Undefined').map((option) => option.classifications[0].segment.name);
     const uniqueSegments = [...new Set(segmentArray)]
     
 

@@ -18,7 +18,7 @@ function reducer(state, action) {
 
 function App() {
   function getLocationInput(location) {
-    setLocation(location);
+        setLocation(location);
   }
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -41,7 +41,7 @@ function App() {
     setLoadState(true);
     console.log("You got here");
     // console.log(location)
-    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=AGoronTU164njtX9HovbXILABk4pyQ00&stateCode=${location.stateCode}&city=${location.city}&size=200`, {
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=AGoronTU164njtX9HovbXILABk4pyQ00&stateCode=${location.stateCode}&city=${location.city}&size=100`, {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
     })
       .then(response => response.json())
@@ -61,7 +61,7 @@ function App() {
     <div className="App">
       <header>
         <h1>TicketTron 2.0</h1>
-        <LocationSearch location={getLocationInput} />
+      <LocationSearch location={getLocationInput}/>
       </header>
       <main>
       {loading ? "" : <FilterResults eventsList={state.eventsList} reducer={dispatch}/>}

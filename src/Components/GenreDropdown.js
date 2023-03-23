@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 
 function GenreDropdown(props) {
     // console.log(props.eventsList)
-    const segmentArray = props.eventsList.map((option) => option.classifications[0].genre.name);
+    const segmentArray = props.eventsList.filter((option) => option.classifications[0].genre === 'Undefined').map((option) => option.classifications[0].genre.name);
     const uniqueSegments = [...new Set(segmentArray)]
 
 
