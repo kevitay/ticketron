@@ -8,7 +8,7 @@ function EventItem({event}) {
     return (
         <div>
             <h2>Name: {event.name}</h2>
-            <p>Date & Time: {formattedDateTime}</p>
+            <p>Date & Time: {eventDateTime === '9999/12/31' ? 'TBD' : formattedDateTime}</p>
             <p>City: {event._embedded.venues[0].city.name}</p>
             <p>State: {event._embedded.venues[0].state.name}</p>
             <p>Venue: {event._embedded.venues[0].name}</p>

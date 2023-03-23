@@ -16,6 +16,7 @@ function reducer(state, action) {
   }
 }
 
+
 function App() {
 
   function getLocationInput(location) {
@@ -50,6 +51,8 @@ function App() {
 
   }
 
+
+
   // useEffect(() => {getEvents()}, [])
   // useEffect(() => {console.log(state)}, [state])
 
@@ -59,9 +62,9 @@ function App() {
         <h1>TicketTron 2.0</h1>
       </header>
       <main>
-        <LocationSearch location={getLocationInput} />
-        {loading ? "Loading..." : <FilterResults eventsList={state.eventsList} reducer={dispatch} />}
-        {loading ? "Loading..." : <EventsList eventsList={state.eventsList} location={location} />}
+      <LocationSearch location={getLocationInput} />
+      {loading ? "Loading..." : <FilterResults eventsList={state.eventsList} reducer={dispatch}/>}
+      {loading ? "Loading..." : <EventsList eventsList={state.eventsList} location={location} />}
       </main>
     </div>
   );
