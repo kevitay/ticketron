@@ -29,14 +29,16 @@ function App() {
   });
   const [loading, setLoadState] = useState(false);
 
+//--------useFeect will run get Events on load to populate the initial event items in to the event list ---//
   useEffect(() => {
     getEvents();
   }, []);
-
+//--------When location state changes the use Effect hook will run get events and repopulate the results using the Location and City as part of the URL ----//
   useEffect(() => {
     getEvents();
   }, [location]);
 
+//--------Fetch call to the API for dispatching to the initial state of the App. ------//
   const getEvents = () => {
     setLoadState(true);
     console.log("You got here");
@@ -52,7 +54,7 @@ function App() {
       .then(setLoadState(false))
 
   }
-
+//----------------------------------------------------------------------------------------------//
 
 
   // useEffect(() => {getEvents()}, [])
